@@ -1,4 +1,4 @@
 from django.urls import path
-from . import views
+from .views import ListaPendientes
 
-urlpatterns = [path('', views.lista_pendientes, name='pendientes')]
+urlpatterns = [path('', ListaPendientes.as_view(), name='pendientes')] # as_view() hace una lista de clases a una lista normal
