@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy # Te lleva a una URL automaticamente ante la ocurrencia de un evento
 from .models import Tarea
 
@@ -20,3 +20,7 @@ class CrearTarea(CreateView):
     fields = '__all__' #Incrpora todos los campos del modelo
     success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
 
+class EditarTarea(UpdateView):
+    model = Tarea
+    fields = '__all__' #Incrpora todos los campos del modelo
+    success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
