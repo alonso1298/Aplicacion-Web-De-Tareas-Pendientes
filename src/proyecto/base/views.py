@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin # Restinge el acceso si no estas logueado
 from django.urls import reverse_lazy # Te lleva a una URL automaticamente ante la ocurrencia de un evento
 from .models import Tarea
 
@@ -15,28 +15,27 @@ class Logueo(LoginView):
     def get_success_url(self):
         return reverse_lazy('tareas')
 
-@login_required
-class ListaPendientes(ListView):
+class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
     context_object_name = 'tareas' #Este es el alias de la clase
 
-class DetalleTarea(DetailView):
+class DetalleTarea(LoginRequiredMixin, DetailView):
     model = Tarea
     context_object_name = 'tarea'
     template_name = 'base/tarea.html'
 
 
-class CrearTarea(CreateView):
+class CrearTarea(LoginRequiredMixin, CreateView):
     model = Tarea
     fields = '__all__' #Incrpora todos los campos del modelo
     success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
 
-class EditarTarea(UpdateView):
+class EditarTarea(LoginRequiredMixin, UpdateView):
     model = Tarea
     fields = '__all__' #Incrpora todos los campos del modelo
     success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
 
-class EliminarTarea(DeleteView):
+class EliminarTarea(LoginRequiredMixin, DeleteView):
     model = Tarea
     context_object_name = 'tarea' # Los elementos del objetos son referenciados como tareas
     success_url = reverse_lazy('tareas')
