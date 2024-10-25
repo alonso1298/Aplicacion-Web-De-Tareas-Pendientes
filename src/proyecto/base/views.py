@@ -1,3 +1,5 @@
+from django.forms import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -9,7 +11,7 @@ from .models import Tarea
 
 class Logueo(LoginView):
     template_name = "base/login.html"
-    field = '__all__'
+    field = '__all__' #Incrpora todos los campos del modelo
     redirect_authenticated_user = True
 
     def get_success_url(self):
@@ -19,6 +21,12 @@ class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
     context_object_name = 'tareas' #Este es el alias de la clase
 
+    def get_context_data(self, **kwarg):
+        context = super().get_context_data(**kwarg)
+        context['tareas'] = context['tareas'].filter(usuario=self.request.user)
+        context['count'] = context['tareas'].filter(completo=False).count()
+        return context
+
 class DetalleTarea(LoginRequiredMixin, DetailView):
     model = Tarea
     context_object_name = 'tarea'
@@ -27,12 +35,16 @@ class DetalleTarea(LoginRequiredMixin, DetailView):
 
 class CrearTarea(LoginRequiredMixin, CreateView):
     model = Tarea
-    fields = '__all__' #Incrpora todos los campos del modelo
+    fields = ['titulo', 'descripcion', 'completo']
     success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
+
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super(CrearTarea, self).form_valid(form)
 
 class EditarTarea(LoginRequiredMixin, UpdateView):
     model = Tarea
-    fields = '__all__' #Incrpora todos los campos del modelo
+    fields = ['titulo', 'descripcion', 'completo'] 
     success_url = reverse_lazy('tareas') #cargamos el sitio donde nos llevara automaticamente el sitio
 
 class EliminarTarea(LoginRequiredMixin, DeleteView):
