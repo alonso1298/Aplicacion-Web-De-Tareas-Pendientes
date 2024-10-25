@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin # Restinge el acceso si no estas logueado
 from django.urls import reverse_lazy # Te lleva a una URL automaticamente ante la ocurrencia de un evento
@@ -16,6 +18,12 @@ class Logueo(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('tareas')
+    
+class PaginaRegistro(FormView):
+    template_name = 'base/registro.html'
+    form_class = UserCreationForm
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('tareas')
 
 class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
