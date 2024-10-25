@@ -25,6 +25,12 @@ class PaginaRegistro(FormView):
     redirect_authenticated_user = True
     success_url = reverse_lazy('tareas')
 
+    def form_valid(self, form):
+        usuario = form.save() # Usuario sera igual al valor de lo que se haya guardado en el formulario
+        if usuario is not None:
+            login(self.request, usuario)
+        return super(PaginaRegistro, self).form_valid(form)
+
 class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
     context_object_name = 'tareas' #Este es el alias de la clase
