@@ -16,16 +16,43 @@
     {% endif %}
 </header>
 
-<h1>Lista de Pendientes</h1>
+<!-- <br>
+
 <a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
 
 <br>
-<br>
+<br> -->
 
-<form method="GET">
+<!-- <form method="GET">
     <input type="text" name="area-buscar" value="{{valor_buscado}}">
     <input type="submit" value="Buscar">
-</form>
+</form> -->
+
+<br>
+
+<div class="envoltorio-items-tarea">
+    {% for tarea in tareas %}
+    <div class="envoltorio-tarea">
+        {% if tarea.completo %}
+        <div class="titulo-tarea">
+            <div class="icono-tarea-completa">
+            <i><s><a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a></s></i>
+            </div>
+        </div>
+        {% else %}
+        <div class="titulo-tarea">
+            <div class="icono-tarea-incompleta">
+            <a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    {% empty %}
+    <h3>No hay elementos en esta lista</h3>
+
+    {% endfor %}
+</div>
 
 <table>
     <tr>
