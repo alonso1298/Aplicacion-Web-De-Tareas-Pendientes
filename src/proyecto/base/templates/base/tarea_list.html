@@ -28,8 +28,6 @@
     <input type="submit" value="Buscar">
 </form> -->
 
-<br>
-
 <div class="envoltorio-items-tarea">
     {% for tarea in tareas %}
     <div class="envoltorio-tarea">
@@ -39,12 +37,14 @@
             <i><s><a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a></s></i>
             </div>
         </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">&#x2A2F;</a>
         {% else %}
         <div class="titulo-tarea">
             <div class="icono-tarea-incompleta">
             <a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a>
             </div>
         </div>
+        <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">&#x292B;</a>
         {% endif %}
     </div>
     
@@ -53,27 +53,5 @@
 
     {% endfor %}
 </div>
-
-<table>
-    <tr>
-        <th>Elementos</th>
-        <th></th>
-        <th></th>
-    </tr>
-
-    {% for tarea in tareas %}
-
-    <tr>
-        <td>{{tarea.titulo}}</td>
-        <td><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></td>
-        <td><a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a></td>
-    </tr>
-
-    {% empty %}
-    <h3>No hay elementos en esta lista</h3>
-
-    {% endfor %}
-
-</table>
 
 {% endblock content %}
