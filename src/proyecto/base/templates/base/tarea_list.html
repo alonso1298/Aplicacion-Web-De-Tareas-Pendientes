@@ -16,17 +16,17 @@
     {% endif %}
 </header>
 
-<!-- <br>
+<br>
 
-<a href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
+<a class="boton nueva-tarea" href="{% url 'crear-tarea' %}">Crear Nueva Tarea</a>
 
 <br>
-<br> -->
+<br>
 
-<!-- <form method="GET">
+<form method="GET">
     <input type="text" name="area-buscar" value="{{valor_buscado}}">
     <input type="submit" value="Buscar">
-</form> -->
+</form>
 
 <div class="envoltorio-items-tarea">
     {% for tarea in tareas %}
