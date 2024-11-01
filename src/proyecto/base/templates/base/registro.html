@@ -9,7 +9,15 @@
 <div class="cuerpo-tarjeta">
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
+        <label>{{form.username.label}}</label>
+            {{form.username}}
+
+        <label>{{form.password1.label}}</label>
+            {{form.password1}}
+
+        <label>{{form.password2.label}}</label>
+            {{form.password2}}
+
         <input class="boton" type="submit" value="Registrar">
     </form>
     <p>¿Ya tienes una cuenta? <a class="boton" href="{% url 'login' %}">Ingresa</a></p>
