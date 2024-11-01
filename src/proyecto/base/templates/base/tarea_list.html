@@ -18,10 +18,10 @@
 
 <div class="envoltorio-agregar-buscar">
     <form method="GET" style="margin-top: 20px; display: flex;">
-        <input type="text" name="area-buscar" value="{{valor_buscado}}">
-        <input class="boton" type="submit" value="Buscar">
+        <input class="area-buscar" type="text" name="area-buscar" value="{{valor_buscado}}">
+        <input class="boton buscar" type="submit" value="Buscar">
     </form>
-    <a class="boton nueva-tarea" href="{% url 'crear-tarea' %}">&#x1F7A5;</a>
+    <a class="boton" href="{% url 'crear-tarea' %}">&#x1F7A5;</a>
 </div>
 
 

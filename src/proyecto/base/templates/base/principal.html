@@ -32,6 +32,7 @@
             color: #212f3d ;
         }
         .boton {
+            text-decoration: none;
             background-color: #007bff;       /* Azul principal */
             color: white;                    /* Texto en blanco */
             padding: 12px 24px;              /* Espaciado interno */
@@ -42,9 +43,8 @@
             cursor: pointer;                 /* Indicador de clic */
             box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.4);  /* Sombra suave */
         }
-        .nueva-tarea{
-            text-decoration: none;
-            margin-left: 20px;
+        .area-buscar, .buscar{
+            margin-bottom: 12px;
         }
         .barra-superior {
             display: flex;
@@ -95,6 +95,21 @@
             align-items: center;
             padding: 10px;
         }
+        .cuerpo-tarjeta {
+            padding: 20px;
+        }
+        .cuerpo-tarjeta form input[type="text"],
+        .cuerpo-tarjeta form input[type="password"],
+        .cuerpo-tarjeta form input[type="email"],
+        .cuerpo-tarjeta form .boton {
+            width: 100%;          /* Hace que el campo ocupe todo el ancho */
+            padding: 10px;        /* Añade espacio interno */
+            margin: 10px 0;       /* Espaciado entre campos */
+            box-sizing: border-box; /* Asegura que el padding no exceda el ancho */
+            border-radius: 5px;   /* Bordes redondeados */
+            border: 1px solid #ddd; /* Borde de los campos */
+        }
+
     </style>
 </head>
 <body>
