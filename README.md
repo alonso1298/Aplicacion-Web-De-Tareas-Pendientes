@@ -9,43 +9,9 @@ Este es un proyecto de aplicación web creado con Django para gestionar tareas p
 - Modelo de Datos: Organiza la información de cada tarea con campos como nombre, descripción, estado, y fecha de vencimiento.
 
 ## Tecnologías Utilizadas
-
-- Backend: Django
-- Frontend: HTML y CSS
-- Base de Datos: SQLite (por defecto en Django, puede ser reemplazado por otras bases de datos)
-
-## Aquí tienes un ejemplo de README para tu proyecto de aplicación web de tareas pendientes en Django:
-Aplicación Web de Tareas Pendientes
-
-Este es un proyecto de aplicación web creado con Django para gestionar tareas pendientes. La aplicación permite a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre las tareas, con el fin de organizar sus actividades y pendientes.
-Características
-
-    CRUD de Tareas: Permite a los usuarios agregar, ver, actualizar y eliminar tareas.
-    Interfaz amigable: Diseño sencillo y funcional para facilitar la administración de las tareas.
-    Modelo de Datos: Organiza la información de cada tarea con campos como nombre, descripción, estado, y fecha de vencimiento.
-
-Tecnologías Utilizadas
-
-    Backend: Django
-    Frontend: HTML, CSS, JavaScript
-    Base de Datos: SQLite (por defecto en Django, puede ser reemplazado por otras bases de datos)
-
-## Instalación
-### Aquí tienes un ejemplo de README para tu proyecto de aplicación web de tareas pendientes en Django:
-Aplicación Web de Tareas Pendientes
-
-Este es un proyecto de aplicación web creado con Django para gestionar tareas pendientes. La aplicación permite a los usuarios realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre las tareas, con el fin de organizar sus actividades y pendientes.
-Características
-
-    CRUD de Tareas: Permite a los usuarios agregar, ver, actualizar y eliminar tareas.
-    Interfaz amigable: Diseño sencillo y funcional para facilitar la administración de las tareas.
-    Modelo de Datos: Organiza la información de cada tarea con campos como nombre, descripción, estado, y fecha de vencimiento.
-
-## Tecnologías Utilizadas
-
-    Backend: Django
-    Frontend: HTML, CSS, JavaScript
-    Base de Datos: SQLite (por defecto en Django, puede ser reemplazado por otras bases de datos)
+- **Backend**: Django
+- **Frontend**: HTML, CSS, JavaScript
+- **Base de Datos**: SQLite (por defecto en Django, puede ser reemplazado por otras bases de datos)
 
 ## Instalación
 ### Prerrequisitos
@@ -80,7 +46,7 @@ python manage.py runserver
 3. Haz clic en "Editar" para modificar una tarea existente o en "Eliminar" para borrarla.
 
 ## Estructura del Proyecto
-- app_tareas/: Carpeta principal de la aplicación de tareas.
+- **app_tareas/**: Carpeta principal de la aplicación de tareas.
 - **templates/**: Archivos HTML de la interfaz de usuario.
 - **static/**: Archivos CSS y JavaScript para el frontend.
 - **models.py**: Define el modelo de datos para la aplicación.
