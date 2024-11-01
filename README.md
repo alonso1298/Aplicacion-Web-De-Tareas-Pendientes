@@ -39,6 +39,7 @@ python manage.py migrate
 ```bash 
 python manage.py runserver
 ```
+6. Abre el navegador y accede a http://127.0.0.1:8000/ para ver la aplicación en funcionamiento.
 
 ## Uso
 1. Desde la página de inicio, puedes ver todas las tareas pendientes.
